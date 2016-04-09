@@ -28,10 +28,12 @@ implementados.*/
 public class MiColeccion implements java.util.List {
 Object obj [];
 
-    void MiColeccion (){
+    
+
+    public MiColeccion (){
         this.obj = new Object[3];
     }
-    void MiColeccion(int n){
+    public MiColeccion(int n){
         this.obj = new Object[n];
     }
     
@@ -65,7 +67,8 @@ Object obj [];
 
     @Override
     public Iterator iterator() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+       Iterator<Object> iterator = Arrays.asList(obj).iterator();
+        return iterator;
     }
 
     @Override
@@ -80,14 +83,16 @@ Object obj [];
 
     @Override
     public boolean add(Object e) {
-        
-        for (int i = 0; i < obj.length;i++) {
+        int i = obj.length;
+        for (i = 0; i <= obj.length;i++) {
             if (obj[i]== null) {  
-                obj[i]=e;
-                return true;
-            }      
+                break;
+            }   
         } 
-        return false; 
+        if(i == obj.length) return false;
+        else obj[i]=e;
+        
+        return true; 
     }
 
     @Override
